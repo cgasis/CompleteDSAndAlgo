@@ -1,7 +1,4 @@
-class Node
-  def __init__(self, value)
-    self.value = value
-    self.next = None
-    #testing
+# imports
+import SinglyLinkedList
 
-  
+SinglyLinkedList.Main.run()

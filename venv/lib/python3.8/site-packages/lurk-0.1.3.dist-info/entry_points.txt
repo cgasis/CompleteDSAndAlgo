@@ -1,0 +1,3 @@
+[console_scripts]
+lurk = module:main
+
