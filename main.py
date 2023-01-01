@@ -1,4 +1,4 @@
-# imports s
+# imports
 import SinglyLinkedList
 
 SinglyLinkedList.Main.run()
