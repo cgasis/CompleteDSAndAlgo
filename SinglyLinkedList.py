@@ -64,15 +64,54 @@ class SinglyLinkedList:
           return searchNode.value
         node = node.next
       print(f'The node {searchNode.value} has not found in SLL')
+  
+  def remove(self, location):
+    if self.head is None:
+      print('The Singly Linked List is Null')
+    else:
+      if location == 0:
+        if self.head == self.tail:
+          self.head = None
+          self.tail = None
+        else:
+          self.head = self.head.next
+      elif location == -1:
+        if self.head == self.tail:
+          self.head = None
+          self.tail = None
+        else:
+          node = self.head
+          while node is not None:
+            if node.next == self.tail:
+              break;
+            node = node.next
+          node.next = None
+          self.tail = node
+      else:
+        tempNode = self.head
+        index = 0
+        while index < location - 1:
+          tempNode = tempNode.next
+          index += 1
+        nextNode = tempNode.next
+        tempNode.next = nextNode.next
 
-
+  def removeAll(self):
+    if self.head is None:
+      print('The Singly Linked List is Null')
+    else:
+      self.head = None
+      self.tail = None
+        
 class Main:
 
   def run():
     Main.creationSLL()
     Main.InsertionSLL()
-    Main.TraverseSSL()
-    Main.SearchSSL()
+    Main.TraverseSLL()
+    Main.SearchSLL()
+    Main.RemoveSLL()
+    Main.RemoveAllSLL()
 
   def creationSLL():
     # Creation SLL
@@ -100,7 +139,7 @@ class Main:
     # singlyLinkedList.insertSLL(5,-1)
     print(f'Insertion SLL => {[node.value for node in singlyLinkedList]}')
 
-  def TraverseSSL():
+  def TraverseSLL():
    singlyLinkedList = SinglyLinkedList()
 
    singlyLinkedList.insert(1, 1)
@@ -109,7 +148,7 @@ class Main:
 
    singlyLinkedList.traverse()
 
-  def SearchSSL():
+  def SearchSLL():
    singlyLinkedList = SinglyLinkedList()
 
    singlyLinkedList.insert(1, 1)
@@ -118,4 +157,25 @@ class Main:
 
    print(f'Search SSL')
    print(singlyLinkedList.search(4))
-   
+
+  def RemoveSLL():
+   singlyLinkedList = SinglyLinkedList()
+
+   singlyLinkedList.insert(1, 1)
+   singlyLinkedList.insert(2, 1)
+   singlyLinkedList.insert(3, 2)
+
+   print(f'Remove SLL => {[node.value for node in singlyLinkedList]}')
+   singlyLinkedList.remove(1)
+   print(f'Remove SLL => {[node.value for node in singlyLinkedList]}')
+
+  def RemoveAllSLL():
+   singlyLinkedList = SinglyLinkedList()
+
+   singlyLinkedList.insert(1, 1)
+   singlyLinkedList.insert(2, 1)
+   singlyLinkedList.insert(3, 2)
+
+   print(f'Remove All SLL => {[node.value for node in singlyLinkedList]}')
+   singlyLinkedList.removeAll()
+   print(f'Remove All SLL => {[node.value for node in singlyLinkedList]}')
