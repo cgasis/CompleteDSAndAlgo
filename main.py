@@ -1,4 +1,5 @@
 # imports s
-import SinglyLinkedList
+import SinglyLinkedList, DoublyLinkedList
 
-SinglyLinkedList.Main.run()
+# SinglyLinkedList.Main.run()
+DoublyLinkedList.Main.run()
